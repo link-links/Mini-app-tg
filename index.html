@@ -2,116 +2,133 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Status Bio</title>
+<title>My Bio Premium</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <style>
-  body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(180deg, #020617, #0f172a);
-    color: white;
-    text-align: center;
-  }
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: white;
+  text-align: center;
+}
 
-  .card {
-    margin: 30px 15px;
-    padding: 25px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 40px rgba(0,0,0,0.6);
-  }
+/* контейнер */
+.container {
+  padding: 20px;
+}
 
-  .avatar {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 3px solid #00f0ff;
-    box-shadow: 0 0 20px #00f0ff;
-  }
+/* карточка */
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
 
-  .name {
-    font-size: 22px;
-    margin-top: 10px;
-    font-weight: bold;
-  }
+/* аватар */
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid #3b82f6;
+  margin-top: 10px;
+}
 
-  .status {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #22c55e;
-  }
+/* имя */
+h1 {
+  margin: 10px 0 5px;
+  font-size: 24px;
+}
 
-  .bio {
-    margin-top: 10px;
-    opacity: 0.8;
-  }
+/* статус */
+.status {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
 
-  .btn {
-    margin-top: 12px;
-    padding: 12px;
-    width: 100%;
-    border-radius: 12px;
-    border: none;
-    background: #020617;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.2s;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
+/* кнопки */
+.btn {
+  display: block;
+  margin: 10px auto;
+  padding: 14px;
+  width: 90%;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-  .btn:hover {
-    transform: scale(1.05);
-    border: 1px solid #00f0ff;
-    box-shadow: 0 0 15px #00f0ff;
-  }
+.btn:hover {
+  transform: scale(1.03);
+}
 
-  .menu {
-    display: none;
-    padding: 20px;
-  }
+/* вторичные кнопки */
+.btn2 {
+  background: rgba(255,255,255,0.08);
+}
 
+/* меню */
+.menu {
+  display: none;
+  padding: 20px;
+}
+
+/* бейдж */
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #22c55e;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-top: 5px;
+}
 </style>
 </head>
 
 <body>
 
-<div class="card" id="main">
-  <img src="https://i.imgur.com/6VBx3io.png" class="avatar">
-
-  <div class="name" id="name">Loading...</div>
-  <div class="status">● ONLINE</div>
-  <div class="bio">🚀 Elite Player | 💻 Mini App Dev</div>
-
-  <button class="btn" onclick="openMenu('links')">🔗 Links</button>
-  <button class="btn" onclick="openMenu('profile')">👤 Profile</button>
-  <button class="btn" onclick="sendProfile()">📤 Send Profile</button>
-</div>
-
-<!-- LINKS -->
-<div class="menu" id="links">
+<div class="container" id="main">
   <div class="card">
-    <h2>🔗 Links</h2>
 
-    <button class="btn" onclick="openLink('https://t.me/')">Telegram</button>
-    <button class="btn" onclick="openLink('https://youtube.com/')">YouTube</button>
+    <img src="https://i.imgur.com/6VBx3io.png" class="avatar">
 
-    <button class="btn" onclick="back()">⬅ Back</button>
+    <h1 id="name">Loading...</h1>
+
+    <div class="badge">ONLINE</div>
+    <div class="status">🎮 RP Player | 💻 Mini App Dev</div>
+
+    <button class="btn" onclick="openMenu('links')">🔗 Соцсети</button>
+    <button class="btn" onclick="openMenu('about')">📄 Обо мне</button>
+    <button class="btn btn2" onclick="sendProfile()">📤 Отправить</button>
+
   </div>
 </div>
 
-<!-- PROFILE -->
-<div class="menu" id="profile">
+<!-- ссылки -->
+<div class="menu" id="links">
   <div class="card">
-    <h2>👤 Profile</h2>
+    <h2>🔗 Соцсети</h2>
 
-    <p>💰 Balance: 1 250</p>
-    <p>🏆 Level: 7</p>
-    <p>🔥 Status: VIP</p>
+    <button class="btn" onclick="openLink('https://t.me/')">Telegram</button>
+    <button class="btn" onclick="openLink('https://youtube.com/')">YouTube</button>
+    <button class="btn btn2" onclick="back()">⬅ Назад</button>
+  </div>
+</div>
 
-    <button class="btn" onclick="back()">⬅ Back</button>
+<!-- обо мне -->
+<div class="menu" id="about">
+  <div class="card">
+    <h2>📄 Обо мне</h2>
+    <p>🔥 Играю на RP серверах<br>⚡ Делаю Telegram Mini Apps<br>🚀 Развиваю проекты</p>
+
+    <button class="btn btn2" onclick="back()">⬅ Назад</button>
   </div>
 </div>
 
@@ -119,6 +136,7 @@
 const tg = window.Telegram.WebApp;
 tg.expand();
 
+// имя пользователя
 const user = tg.initDataUnsafe.user;
 
 if (user) {
@@ -135,17 +153,17 @@ function openMenu(menu) {
 function back() {
   document.getElementById("main").style.display = "block";
   document.getElementById("links").style.display = "none";
-  document.getElementById("profile").style.display = "none";
+  document.getElementById("about").style.display = "none";
 }
 
-// ссылки
+// открыть ссылку
 function openLink(url) {
   tg.openLink(url);
 }
 
-// отправка
+// отправка данных
 function sendProfile() {
-  tg.sendData("profile:" + JSON.stringify(user));
+  tg.sendData("PROFILE:" + JSON.stringify(user));
 }
 </script>
 
